@@ -1,3 +1,10 @@
+#
+#	main.py
+#	Pairs - Ultimate Edition 
+#
+#	Created by sgav191 on 3/12/2021.
+#
+
 import turtle
 import random
 screen = turtle.Screen()
@@ -12,7 +19,7 @@ def coordinatesx(num):
 	return xcor
 
 def coordinatesy(num):
-	ycor = (num // 4) * 50
+	ycor = (num // 4) * 50 - 100
 	return ycor
 def drawsquare(xcor,ycor):
 	drawer.penup()
