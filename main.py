@@ -11,9 +11,29 @@ screen = turtle.Screen()
 drawer = turtle.Turtle()
 screen.title("Pairs")
 screen.bgcolor("#00aeff")
+
+hidden = [True]*16
+state = None
+numbers = list(range(1,9))*2
+random.shuffle(numbers)
+
+def Numbering(x, y):
+	return int((x + 100) // 50 + ((y + 100) // 50) * 4)
+
 def screenclick(xcor,ycor):
+	global state
 	print (xcor)
 	print (ycor)
+	numclick = Numbering(xcor,ycor)
+	print (numclick)
+	oldstate = state
+	if oldstate == None:
+		state = numclick
+		print ("No Match")
+	else:
+		print ("Numbers match")
+		state = None
+
 def coordinatesx(num):
 	xcor = (num % 4) * 50 - 100
 	return xcor
@@ -36,8 +56,6 @@ def draw():
 		xcor = coordinatesx(num)
 		ycor = coordinatesy(num)
 		drawsquare(xcor,ycor)
-numbers = list(range(1,9))*2
-random.shuffle(numbers)
 print (numbers)
 screen.onscreenclick(screenclick)
 draw()
